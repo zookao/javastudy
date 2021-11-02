@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.NationMapper">
+    <cache></cache>
+    <select id="getNationById" resultType="nation" databaseId="mysql">
+        select *
+        from nation
+        where id = #{id}
+    </select>
+    <resultMap id="getNationByIdPlus_" type="models.Nation">
+        <id column="id" property="id"/>
+        <result column="nation" property="nation"/>
+        <collection property="stars" ofType="models.Star">
+            <id column="sid" property="id"/>
+            <result column="name" property="name"/>
+            <result column="company" property="company"/>
+            <result column="salary" property="salary"/>
+        </collection>
+    </resultMap>
+    <select id="getNationByIdPlus" resultMap="getNationByIdPlus_" databaseId="mysql">
+        SELECT nation.id, nation.nation, star.id as sid, star.name, star.company, star.salary
+        FROM nation
+                 LEFT JOIN star ON star.`nation_id` = nation.`id`
+        WHERE nation.id = 1
+    </select>
+
+    <!--分步查询-->
+    <resultMap id="getNationByIdStep_" type="models.Nation">
+        <id column="id" property="id"/>
+        <result column="nation" property="nation"/>
+        <collection property="stars" select="mappers.StarMapperPlus.getStarsByNationId" column="id">
+        </collection>
+    </resultMap>
+    <select id="getNationByIdStep" resultMap="getNationByIdStep_" databaseId="mysql">
+        select *
+        from nation
+        where id = #{id}
+    </select>
+
+    <!--扩展
+    分步查询如何传递多个column
+    column="{key1=column1,key2=column2}"
+    -->
+</mapper>

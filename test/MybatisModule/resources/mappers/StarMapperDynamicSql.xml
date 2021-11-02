@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.StarMapperDynamicSql">
+    <select id="getStarsByConditionIf" resultType="models.Star">
+        select *
+        from star
+        <where>
+            <if test="id!=0">id=#{id}</if>
+            <if test="name!=null and name!=&quot;&quot;">and name like #{name}</if>
+        </where>
+    </select>
+    <select id="getStarsByConditionTrim" resultType="models.Star">
+        select *
+        from star
+        <trim prefix="where" suffixOverrides="and">
+            <if test="id!=0">id=#{id} and</if>
+            <if test="name!=null and name!=&quot;&quot;">name like #{name} and</if>
+        </trim>
+    </select>
+    <select id="getStarsByConditionChoose" resultType="models.Star">
+        select *
+        from star
+        <where>
+            <choose>
+                <when test="id!=0">
+                    id=#{id}
+                </when>
+                <when test="name!=null and name!=&quot;&quot;">
+                    name like #{name}
+                </when>
+                <otherwise>
+                    nation_id=1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+    <update id="updateStar">
+        update star
+        <set>
+            <if test="name!=null and name!=&quot;&quot;">name=#{name},</if>
+            <if test="company!=null and company!=&quot;&quot;">company=#{company},</if>
+        </set>
+        where id=#{id}
+    </update>
+    <select id="getStarsByConditionForeach" resultType="models.Star">
+        select * from star
+        <foreach collection="ids" item="item" separator="," open="where id in(" close=")">
+            #{item}
+        </foreach>
+    </select>
+    <insert id="addStars">
+        insert into star(name,company,salary,nation_id) values
+        <foreach collection="stars" item="star" separator=",">
+            (#{star.name},#{star.company},#{star.salary},#{star.nation.id})
+        </foreach>
+    </insert>
+</mapper>

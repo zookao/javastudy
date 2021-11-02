@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.StarMapperPlus">
+    <cache></cache>
+    <!--自定义映射规则-->
+    <resultMap id="getStarById_" type="models.Star">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="company" property="company"/>
+        <result column="salary" property="salary"/>
+    </resultMap>
+    <select id="getStarById" resultMap="getStarById_">
+        select *
+        from star
+        where id = #{id}
+    </select>
+
+    <resultMap id="getStarAndNationById_" type="models.Star">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="company" property="company"/>
+        <result column="salary" property="salary"/>
+        <!--方式一-->
+        <result column="nation_id" property="nation.id"/><!--public Nation nation;-->
+        <result column="nation" property="nation.nation"/>
+        <!--方式二-->
+        <association property="nation" javaType="models.Nation">
+            <id column="nation_id" property="id"/>
+            <result column="nation" property="nation"/>
+        </association>
+    </resultMap>
+    <select id="getStarAndNationById" resultMap="getStarAndNationById_">
+        select star.id, star.name, star.company, star.salary, star.nation_id,nation.nation
+        from star
+                 left join nation on nation.id = star.nation_id
+        where star.id = #{id}
+    </select>
+
+    <!--association分步查询-->
+    <resultMap id="getStarByIdStep_" type="models.Star">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="company" property="company"/>
+        <result column="salary" property="salary"/>
+        <discriminator javaType="string" column="company">
+            <case value="中国" resultType="models.Star">
+                <association property="nation" select="mappers.NationMapper.getNationById" column="nation_id">
+                </association>
+            </case>
+            <case value="美国" resultType="models.Star">
+                <association property="nation" select="mappers.NationMapper.getNationById" column="nation_id">
+                </association>
+            </case>
+        </discriminator>
+    </resultMap>
+    <select id="getStarByIdStep" resultMap="getStarByIdStep_">
+        select *from star where id = #{id}
+    </select>
+    <select id="getStarsByNationId" resultType="models.Star">
+        select *from star where nation_id=#{id}
+    </select>
+</mapper>
