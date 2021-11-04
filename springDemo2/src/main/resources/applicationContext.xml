@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--三种方式-->
+    <!--1、多个context声明-->
+    <!--2、以;或,隔开-->
+    <!--3、指定父级包名-->
+    <context:component-scan base-package="com.zookao"/>
+    <bean id="school" class="com.zookao.pojo.School">
+        <property name="name" value="清华大学"/>
+        <property name="address" value="五道口"/>
+    </bean>
+</beans>

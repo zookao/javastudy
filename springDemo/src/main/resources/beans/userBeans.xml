@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="userService" class="com.zookao.service.UserServiceImpl" autowire="byName">-->
+    <!--    &lt;!&ndash;<property name="userDao" ref="userDao"/>&ndash;&gt;-->
+    <!--</bean>-->
+    <bean id="userService" class="com.zookao.service.UserServiceImpl" autowire="byType">
+    </bean>
+    <bean id="userServiceConstructor" class="com.zookao.service.UserServiceImpl">
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="userDao" class="com.zookao.dao.UserDaoImpl"/>
+</beans>

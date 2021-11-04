@@ -15,7 +15,7 @@
     <typeAliases>
         <!-- 为某个类起别名-->
         <!-- <typeAlias type="models.Star" alias="star" />-->
-        <!-- 批量起别名，类名为小写驼峰，可搭配Alias共用 name为包名-->
+        <!-- 批量起别名，类名为小写驼峰，可搭配@Alias共用 name为包名-->
         <package name="models"/>
     </typeAliases>
     <plugins>
