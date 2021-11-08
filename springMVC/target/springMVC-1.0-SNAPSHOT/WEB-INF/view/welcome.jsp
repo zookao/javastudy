@@ -5,6 +5,8 @@
 </head>
 <body>
 <h3>从request作用域获取数据</h3>
-${message}
+<p>${name}</p>
+<p>${age}</p>
+<p>${s}</p>
 </body>
 </html>
