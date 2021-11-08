@@ -5,6 +5,6 @@
 </head>
 <body>
 <p>第一个mvc</p>
-<a href="some.czc">测试请求</a>
+<a href="some.c">测试请求</a>
 </body>
 </html>

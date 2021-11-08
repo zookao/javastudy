@@ -18,6 +18,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
-        <url-pattern>*.czc</url-pattern>
+        <url-pattern>*.c</url-pattern>
     </servlet-mapping>
 </web-app>

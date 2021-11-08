@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class TestController {
-    @RequestMapping(value = "/some.czc")
+    @RequestMapping(value = "/some.c")
     public ModelAndView doSome(){
         ModelAndView mv = new ModelAndView();
         //request域
