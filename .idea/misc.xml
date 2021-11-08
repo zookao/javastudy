@@ -5,6 +5,9 @@
       <executable />
     </execution>
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/springMVC" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -13,6 +16,8 @@
         <option value="$PROJECT_DIR$/springDemo2/pom.xml" />
         <option value="$PROJECT_DIR$/springAspect/pom.xml" />
         <option value="$PROJECT_DIR$/springMybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/caozongchao-mp/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC/pom.xml" />
       </list>
     </option>
   </component>

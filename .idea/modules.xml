@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/caozongchao-mp/caozongchao-mp.iml" filepath="$PROJECT_DIR$/caozongchao-mp/caozongchao-mp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/javastudy.iml" filepath="$PROJECT_DIR$/.idea/javastudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/springAspect/springAspect.iml" filepath="$PROJECT_DIR$/springAspect/springAspect.iml" />
       <module fileurl="file://$PROJECT_DIR$/springDemo/springDemo.iml" filepath="$PROJECT_DIR$/springDemo/springDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springDemo2/springDemo2.iml" filepath="$PROJECT_DIR$/springDemo2/springDemo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springMVC/springMVC.iml" filepath="$PROJECT_DIR$/springMVC/springMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/springMybatis/springMybatis.iml" filepath="$PROJECT_DIR$/springMybatis/springMybatis.iml" />
     </modules>
   </component>

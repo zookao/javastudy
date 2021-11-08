@@ -9,19 +9,24 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springDemo" />
         <module name="springDemo2" />
+        <module name="caozongchao-mp" />
         <module name="springAspect" />
         <module name="springMybatis" />
+        <module name="springMVC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="caozongchao-mp" target="1.8" />
       <module name="springAspect" target="1.8" />
       <module name="springDemo" target="1.8" />
       <module name="springDemo2" target="1.8" />
+      <module name="springMVC" target="1.8" />
       <module name="springMybatis" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="caozongchao-mp" options="-parameters" />
       <module name="springDemo" options="" />
     </option>
   </component>
