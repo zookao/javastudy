@@ -12,8 +12,17 @@
     </bean>
     <!--
     注解驱动
-    通过HttpMessageConverter的实体类，将数据转换为json，xml，text等等
+    通过执行HttpMessageConverter每个实现对象的canWrite()方法，再通过write()方法，将数据转换为json，xml，text等等
     再通过@ResponseBody注解，将json输出，response.getWriter()
     -->
     <mvc:annotation-driven/>
+    <!--第一种处理静态资源的方式-->
+    <!--加入这个标签后，框架会创建控制器对象DefualtServletHttpRequestHandler（类似controller）-->
+    <!--这个对象会将请求转发给tomcat的default servlet-->
+    <!--default-servlet-handler与requestmapping注解有冲突，需要加入annotation-driven解决-->
+    <mvc:default-servlet-handler/>
+
+    <!--第二种处理静态资源的方式-->
+    <!--框架会创建ResourceHttpRequestHanlder，不依赖tomcat-->
+    <mvc:resources mapping="/images/**" location="/images/"/>
 </beans>

@@ -58,7 +58,7 @@ public class TestController {
     public String doSome(HttpServletRequest request){
         request.setAttribute("name","zookao");
         request.setAttribute("age","18");
-        return "welcome";
+        return "welcome"; //字符串代表视图
     }
 
     @RequestMapping(value = {"/json.c"},method = RequestMethod.GET)
@@ -67,6 +67,12 @@ public class TestController {
         Student student = new Student();
         student.setAge(18);
         student.setName("zookao");
-        return student;
+        return student; //底层转换为json
+    }
+
+    @RequestMapping(value = {"/jsonString.c"},method = RequestMethod.GET,produces = "text/plain;charset=utf8") //默认8859-1编码
+    @ResponseBody
+    public String jsonString(HttpServletRequest request){
+        return "我叫zookao";
     }
 }
