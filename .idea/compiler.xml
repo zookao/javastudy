@@ -10,6 +10,7 @@
         <module name="springDemo" />
         <module name="springDemo2" />
         <module name="caozongchao-mp" />
+        <module name="ssm" />
         <module name="springAspect" />
         <module name="springMybatis" />
         <module name="springMVC" />
@@ -22,6 +23,7 @@
       <module name="springDemo2" target="1.8" />
       <module name="springMVC" target="1.8" />
       <module name="springMybatis" target="1.8" />
+      <module name="ssm" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

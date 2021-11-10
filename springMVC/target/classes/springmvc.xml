@@ -16,6 +16,7 @@
     再通过@ResponseBody注解，将json输出，response.getWriter()
     -->
     <mvc:annotation-driven/>
+    <!--处理静态资源的前提，org.springframework.web.servlet.DispatcherServlet需要将url-pattern设置为 / -->
     <!--第一种处理静态资源的方式-->
     <!--加入这个标签后，框架会创建控制器对象DefualtServletHttpRequestHandler（类似controller）-->
     <!--这个对象会将请求转发给tomcat的default servlet-->
@@ -24,5 +25,6 @@
 
     <!--第二种处理静态资源的方式-->
     <!--框架会创建ResourceHttpRequestHanlder，不依赖tomcat-->
-    <mvc:resources mapping="/images/**" location="/images/"/>
+    <!--<mvc:resources mapping="/images/**" location="/images/"/>-->
+    <mvc:resources mapping="/statics/**" location="/statics/"/>
 </beans>
