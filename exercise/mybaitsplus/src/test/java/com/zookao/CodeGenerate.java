@@ -50,7 +50,7 @@ public class CodeGenerate {
         pc.setEntity("pojo");
         pc.setMapper("mapper");
         // pc.setService("service");
-        // pc.setController("controller");
+        // pc.setController("boot.controller");
         ag.setPackageInfo(pc);
 
         StrategyConfig strategy = new StrategyConfig();

@@ -20,6 +20,8 @@
     <context:component-scan base-package="com.zookao.exception.handler"/>
     
     <mvc:interceptors>
+        <!--多个拦截器的执行顺序-->
+        <!--1.pre->2.pre->3.pre->3.post->2.post->1.post->3.after->2.after->1.after-->
         <mvc:interceptor>
             <!--uri地址，可以使用通配符*，**标识任意多的字符，文件或者多级文件-->
             <!--http://localhost:8080/ssm/s/register-->
