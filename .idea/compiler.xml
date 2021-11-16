@@ -15,12 +15,14 @@
         <module name="springboot1" />
         <module name="springMybatis" />
         <module name="springMVC" />
+        <module name="springboot2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="caozongchao-mp" target="1.8" />
       <module name="springAspect" target="1.8" />
       <module name="springboot1" target="1.8" />
+      <module name="springboot2" target="1.8" />
       <module name="springDemo" target="1.8" />
       <module name="springDemo2" target="1.8" />
       <module name="springMVC" target="1.8" />
@@ -33,6 +35,7 @@
       <module name="caozongchao-mp" options="-parameters" />
       <module name="springDemo" options="" />
       <module name="springboot1" options="-parameters" />
+      <module name="springboot2" options="-parameters" />
     </option>
   </component>
 </project>

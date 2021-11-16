@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.56.102:3306/test
+    username: root
+    password: root
+  mvc:
+    #static-path-pattern: /static/** #会导致welcome page 如index.html失效
+  web:
+    resources:
+      static-locations: [classpath:/static/]
+server:
+  port: 88
