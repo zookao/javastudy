@@ -1,7 +1,11 @@
 package com.zookao.boot.controller;
 
+import com.zookao.boot.bean.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.ArrayList;
 
 /**
  * User: zookao
@@ -16,7 +20,14 @@ public class TableController {
     }
 
     @GetMapping("/dynamicT")
-    public String dynamic(){
+    public String dynamic(Model model){
+        ArrayList<User> users = new ArrayList<User>();
+        users.add(new User("zookao","111111"));
+        users.add(new User("chao","111111"));
+        users.add(new User("zongchao","111111"));
+        users.add(new User("caozongchao","111111"));
+
+        model.addAttribute("users",users);
         return "table/dynamic_table";
     }
 
