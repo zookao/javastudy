@@ -35,6 +35,7 @@ public class IndexController {
 
     @GetMapping("/index")
     public String index(HttpSession session,Model model){
+        // int i = 10/0;
         if(session.getAttribute("user") != null){
             return "index";
         }else{

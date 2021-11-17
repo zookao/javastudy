@@ -14,3 +14,8 @@ spring:
       max-file-size: 100MB
 server:
   port: 88
+  error:
+    include-message: always
+    include-stacktrace: always
+    include-exception: true
+    include-binding-errors: always
