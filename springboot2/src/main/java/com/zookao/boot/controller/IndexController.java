@@ -1,13 +1,18 @@
 package com.zookao.boot.controller;
 
 import com.zookao.boot.bean.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
 
 /**
  * User: zookao
@@ -15,6 +20,16 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class IndexController {
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
+    @GetMapping("/sql")
+    @ResponseBody
+    public List<Map<String, Object>> sql(){
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from user");
+        return maps;
+    }
 
     @GetMapping(value = {"/","/login"})
     public String login(){
@@ -35,7 +50,7 @@ public class IndexController {
 
     @GetMapping("/index")
     public String index(HttpSession session,Model model){
-        // int i = 10/0;
+        // int i = 10/0; //测试500错误
         if(session.getAttribute("user") != null){
             return "index";
         }else{

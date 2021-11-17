@@ -1,6 +1,7 @@
 package com.zookao.boot.controller;
 
 import com.zookao.boot.bean.User;
+import com.zookao.boot.exception.UserTooManyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,10 @@ public class TableController {
         users.add(new User("chao","111111"));
         users.add(new User("zongchao","111111"));
         users.add(new User("caozongchao","111111"));
+
+        if(users.size() > 3){
+            throw new UserTooManyException();
+        }
 
         model.addAttribute("users",users);
         return "table/dynamic_table";
