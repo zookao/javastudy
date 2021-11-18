@@ -14,9 +14,12 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 /**
+ * 手动配置
+ * 可用starter替代
  * User: zookao
  * Date: 2021-11-17
  */
+@Deprecated
 @Configuration
 public class DruidConfig {
 
@@ -26,7 +29,7 @@ public class DruidConfig {
         DruidDataSource dataSource = new DruidDataSource();
 
         //开启监控总开关
-        dataSource.setFilters("stat");
+        dataSource.setFilters("stat,wall");
         return dataSource;
     }
 
@@ -38,6 +41,8 @@ public class DruidConfig {
     public ServletRegistrationBean statViewServlet(){
         StatViewServlet statViewServlet = new StatViewServlet();
         ServletRegistrationBean<StatViewServlet> statViewServletServletRegistrationBean = new ServletRegistrationBean<>(statViewServlet, "/druid/*");
+        statViewServletServletRegistrationBean.addInitParameter("loginUsername","zookao");
+        statViewServletServletRegistrationBean.addInitParameter("loginPassword","111111");
         return statViewServletServletRegistrationBean;
     }
 
@@ -45,6 +50,7 @@ public class DruidConfig {
      * 采集web-jdbc关联监控的数据，对应菜单【web应用】
      * @return
      */
+    @Bean
     public FilterRegistrationBean webStatFilter(){
         WebStatFilter webStatFilter = new WebStatFilter();
         FilterRegistrationBean<WebStatFilter> webStatFilterFilterRegistrationBean = new FilterRegistrationBean<>(webStatFilter);
