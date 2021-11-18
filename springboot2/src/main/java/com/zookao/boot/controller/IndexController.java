@@ -1,6 +1,8 @@
 package com.zookao.boot.controller;
 
+import com.zookao.boot.bean.Student;
 import com.zookao.boot.bean.User;
+import com.zookao.boot.service.impl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -23,6 +26,14 @@ public class IndexController {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
+    @Autowired
+    StudentServiceImpl studentService;
+
+    @GetMapping("/get-student")
+    @ResponseBody
+    public Student getStudentById(@RequestParam("id") Long id){
+        return studentService.getStudentById(id);
+    }
 
     @GetMapping("/sql")
     @ResponseBody

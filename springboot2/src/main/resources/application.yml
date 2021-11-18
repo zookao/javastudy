@@ -53,3 +53,8 @@ server:
     include-stacktrace: always
     include-exception: true
     include-binding-errors: always
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
