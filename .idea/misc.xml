@@ -22,6 +22,8 @@
         <option value="$PROJECT_DIR$/ssm/pom.xml" />
         <option value="$PROJECT_DIR$/springboot1/pom.xml" />
         <option value="$PROJECT_DIR$/springboot2/pom.xml" />
+        <option value="$PROJECT_DIR$/premainAgent/pom.xml" />
+        <option value="$PROJECT_DIR$/premainAgentJar/pom.xml" />
       </list>
     </option>
   </component>

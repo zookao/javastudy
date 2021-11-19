@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/caozongchao-mp/caozongchao-mp.iml" filepath="$PROJECT_DIR$/caozongchao-mp/caozongchao-mp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/javastudy.iml" filepath="$PROJECT_DIR$/.idea/javastudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/premainAgent/premainAgent.iml" filepath="$PROJECT_DIR$/premainAgent/premainAgent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/premainAgentJar/premainAgentJar.iml" filepath="$PROJECT_DIR$/premainAgentJar/premainAgentJar.iml" />
       <module fileurl="file://$PROJECT_DIR$/springAspect/springAspect.iml" filepath="$PROJECT_DIR$/springAspect/springAspect.iml" />
       <module fileurl="file://$PROJECT_DIR$/springDemo/springDemo.iml" filepath="$PROJECT_DIR$/springDemo/springDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springDemo2/springDemo2.iml" filepath="$PROJECT_DIR$/springDemo2/springDemo2.iml" />

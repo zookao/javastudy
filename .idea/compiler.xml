@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springDemo" />
         <module name="springDemo2" />
+        <module name="premainAgentJar" />
         <module name="caozongchao-mp" />
         <module name="ssm" />
         <module name="springAspect" />
@@ -16,10 +17,13 @@
         <module name="springMybatis" />
         <module name="springMVC" />
         <module name="springboot2" />
+        <module name="premainAgent" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="caozongchao-mp" target="1.8" />
+      <module name="premainAgent" target="1.8" />
+      <module name="premainAgentJar" target="1.8" />
       <module name="springAspect" target="1.8" />
       <module name="springboot1" target="1.8" />
       <module name="springboot2" target="1.8" />
@@ -33,6 +37,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="caozongchao-mp" options="-parameters" />
+      <module name="premainAgentJar" options="-verbose -bootclasspath &quot;$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_291/jre/lib/rt.jar;$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_291/jre/lib/jce.jar;$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_291/jre/lib/jsse.jar&quot;" />
       <module name="springDemo" options="" />
       <module name="springboot1" options="-parameters" />
       <module name="springboot2" options="-parameters" />
