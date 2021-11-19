@@ -56,5 +56,6 @@ server:
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml
-  configuration:
-    map-underscore-to-camel-case: true
+  #Property 'configuration' and 'configLocation' can not specified with together
+  #configuration:
+    #map-underscore-to-camel-case: true

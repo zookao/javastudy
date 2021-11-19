@@ -2,7 +2,9 @@ package com.zookao.boot.mapper;
 
 import com.zookao.boot.bean.Student;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * User: zookao
@@ -10,5 +12,9 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 public interface StudentMapper {
+
+    @Select("select id,name,email,age from student where id=#{id}")
     public Student selectStudentById(Long id);
+
+    public List<Student> selectStudents();
 }

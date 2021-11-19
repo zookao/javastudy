@@ -35,6 +35,12 @@ public class IndexController {
         return studentService.getStudentById(id);
     }
 
+    @GetMapping("/get-students")
+    @ResponseBody
+    public List<Student> getStudents(){
+        return studentService.getStudents();
+    }
+
     @GetMapping("/sql")
     @ResponseBody
     public List<Map<String, Object>> sql(){
