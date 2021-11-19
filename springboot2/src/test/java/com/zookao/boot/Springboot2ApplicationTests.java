@@ -1,5 +1,7 @@
 package com.zookao.boot;
 
+import com.zookao.boot.bean.Student;
+import com.zookao.boot.mapper.StudentMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ class Springboot2ApplicationTests {
     @Autowired
     DataSource dataSource;
 
+    @Autowired
+    StudentMapper studentMapper;
+
     @Test
     void contextLoads() {
         List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from user");
@@ -30,4 +35,9 @@ class Springboot2ApplicationTests {
         log.info("数据源类型:{}",dataSource.getClass());
     }
 
+    @Test
+    public void testStudentMapper(){
+        Student student = studentMapper.selectById(1L);
+        System.out.println("student = " + student);
+    }
 }
