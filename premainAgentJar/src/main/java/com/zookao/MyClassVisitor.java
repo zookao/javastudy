@@ -18,7 +18,6 @@ public class MyClassVisitor extends ClassVisitor implements Opcodes {
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
 		MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
 		if (name.equals("test") && mv != null) {
-			System.out.println("loading class com/zookao/AopInteceptor");
 			methodName = name;
 			mv = new MyMethodVisitor(mv);
 		}
@@ -33,13 +32,16 @@ public class MyClassVisitor extends ClassVisitor implements Opcodes {
 		public void visitCode() {
 			super.visitCode();
 			mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-			// 将待输出信息放入栈顶
-			mv.visitLdcInsn("method " + methodName + " is starting");
-			//调用println方法
-			mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "()V", false);
+			mv.visitLdcInsn("loading class com/zookao/AopInteceptor");
+			mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+			mv.visitMethodInsn(INVOKESTATIC, "com/zookao/AopInteceptor", "before", "()V", false);
 		}
 
 		public void visitInsn(int opcode) {
+			if ((opcode >= Opcodes.IRETURN && opcode <= Opcodes.RETURN) || opcode == Opcodes.ATHROW) {
+				mv.visitMethodInsn(INVOKESTATIC, "com/zookao/AopInteceptor", "after", "()V", false);
+			}
+			mv.visitInsn(opcode);
 		}
 	}
 }

@@ -10,14 +10,14 @@
         <module name="springDemo" />
         <module name="springDemo2" />
         <module name="premainAgentJar" />
-        <module name="caozongchao-mp" />
         <module name="ssm" />
+        <module name="caozongchao-mp" />
         <module name="springAspect" />
         <module name="springboot1" />
         <module name="springMybatis" />
         <module name="springMVC" />
-        <module name="springboot2" />
         <module name="premainAgent" />
+        <module name="springboot2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
