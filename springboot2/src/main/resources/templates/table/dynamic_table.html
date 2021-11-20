@@ -874,6 +874,7 @@
                                         <th>姓名</th>
                                         <th>邮箱</th>
                                         <th>年龄</th>
+                                        <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -882,6 +883,9 @@
                                         <td>[[${user.name}]]</td>
                                         <td th:text="${user.email}"></td>
                                         <td th:text="${user.age}"></td>
+                                        <td>
+                                            <a th:href="@{/student/delete/{id}(id=${user.id},p=${page.current})}" class="btn btn-danger btn-sm">删除</a>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -893,9 +897,7 @@
                                     <div class="span6">
                                         <div class="dataTables_paginate paging_bootstrap pagination">
                                             <ul>
-                                                <li class="prev disabled"><a href="#"> << </a></li>
-                                                <li class="active" th:each="num:${#numbers.sequence(1,page.pages)}"><a href="/dynamicT?p=${num}">[[${num}]]</a></li>
-                                                <li class="next"><a href="#"> >> </a></li>
+                                                <li th:class="${num == page.current?'active':''}" th:each="num:${#numbers.sequence(1,page.pages)}"><a th:href="@{/dynamicT(p=${num})}">[[${num}]]</a></li>
                                             </ul>
                                         </div>
                                     </div>
