@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -25,6 +28,9 @@ class Springboot2ApplicationTests {
     @Autowired
     StudentMapper studentMapper;
 
+    @Autowired
+    StringRedisTemplate redisTemplate;
+
     @Test
     void contextLoads() {
         List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from user");
@@ -39,5 +45,13 @@ class Springboot2ApplicationTests {
     public void testStudentMapper(){
         Student student = studentMapper.selectById(1L);
         System.out.println("student = " + student);
+    }
+
+    @Test
+    public void testRedis(){
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+        operations.set("hello","world");
+        String hello = operations.get("hello");
+        System.out.println("hello = " + hello);
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 // @MapperScan("com.zookao.boot.mapper") //不用再为每个mapper注解@Mapper了
 @ServletComponentScan("com.zookao.boot.servlet")
-@SpringBootApplication
+@SpringBootApplication //复合索引
 public class Springboot2Application {
 
     public static void main(String[] args) {

@@ -1,32 +1,31 @@
 package com.zookao.boot.interceptor;
 
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * User: zookao
- * Date: 2021-11-11
- * 拦截器类
+ * Date: 2021-11-22
  */
-@Slf4j
-public class LoginInterceptor implements HandlerInterceptor {
+@Component
+public class RedisUrlCountInterceptor implements HandlerInterceptor {
+
+    @Autowired
+    StringRedisTemplate redisTemplate;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        // log.info("拦截的请求路径是：{}",request.getRequestURI());
-        HttpSession session = request.getSession();
-        if(session.getAttribute("user") != null){
-            return true;
-        }else{
-            session.setAttribute("error","请登录");
-            response.sendRedirect("/login");
-            return false;
-        }
+        String requestURI = request.getRequestURI();
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+        operations.increment(requestURI);
+        return true;
     }
 
     @Override

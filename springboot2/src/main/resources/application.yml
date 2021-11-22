@@ -46,6 +46,21 @@ spring:
       query-timeout: 3
   aop:
     auto: false # 解决 spring监控 页面无数据的问题
+  redis:
+    #url: redis://111111@192.168.56.102:6379
+    host: 192.168.56.102
+    port: 6379
+    password: 111111
+    client-type: jedis
+    jedis:
+      pool:
+        max-active: 10
+        min-idle: 5
+    #client-type: lettuce
+    #lettuce:
+      #pool:
+        #max-active: 10
+        #min-idle: 5
 server:
   port: 88
   error:

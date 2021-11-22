@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebListener;
 @Slf4j
 @WebListener
 public class MyListener implements ServletContextListener {
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         log.info("监听到项目初始化完成");
