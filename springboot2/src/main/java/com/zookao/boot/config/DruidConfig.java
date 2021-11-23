@@ -20,7 +20,7 @@ import java.util.Arrays;
  * Date: 2021-11-17
  */
 @Deprecated
-@Configuration
+// @Configuration
 public class DruidConfig {
 
     @Bean
