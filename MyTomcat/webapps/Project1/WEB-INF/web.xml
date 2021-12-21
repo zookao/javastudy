@@ -1,0 +1,6 @@
+<Servlets>
+    <Servlet>
+        <url>MyServlet</url>
+        <class>ecnu.MyServletImpl</class>
+    </Servlet>
+</Servlets>
